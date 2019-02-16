@@ -14,6 +14,9 @@ function createElObj($string, $childprops, $debug){
         if($debug) print '<script> console.log("nx-Joomla! Customfield Plugin for Yootheme Pro: Shortener for '.$string.'");</script>'."\n";
         if(count($arr) > 1 && count($arr) >= $x){
             $object->mobile = replacer("%value%", $arr[$x], $childprops, $debug);
+        }else{
+            if($debug) print '<script> console.log("nx-Joomla! Customfield Plugin for Yootheme Pro: Shortener for '.$string.' has a too high value or the string is too short - no shortener used!");</script>'."\n";
+            $object->mobile = replacer("%value%", $string, $childprops, $debug);
         };
     }else{
 
@@ -54,7 +57,7 @@ if(intval($props['debug'])){
 
 }else{
 ?>
-    <div class="uk-child-width-auto uk-flex uk-flex-<?= $props['container_alignement']?>" uk-grid>
+    <div class="uk-child-width-auto uk-flex uk-flex-<?= $props['container_alignement']?> uk-grid-<?= $props['grid_size']?>" uk-grid>
 <?php
 }
 ?>
@@ -68,7 +71,7 @@ if(count($children) > 0){
                 $field = createElObj($cfields[$child->props['fieldname']]['value'], $child->props, intval($props['debug']));
 
                 echo '<div class="nx-field">'."\n";
-                if(!$field->mobile) echo '<div class="uk-hidden@m">'.$field->mobile."</div>\n";
+                if($field->mobile !== false) echo '<div class="uk-hidden@m">'.$field->mobile."</div>\n";
                 echo '<div class="uk-visible@m">'.$field->medium."</div>\n";
                 echo '</div>'."\n";
 
@@ -105,4 +108,4 @@ if(count($children) > 0){
 
     
 
-</div>
+

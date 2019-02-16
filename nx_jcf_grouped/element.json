@@ -8,6 +8,7 @@
     "container": true,
     "width": 500,
     "defaults": {
+        "grid_size" : "medium",
         "debug": "0",
         "container_alignement": "center"
     },
@@ -55,6 +56,17 @@
                 "right" : "right"
             }
         },
+        "grid_size": {
+            "label": "Grid Size",
+            "type": "select",
+            "description":"Select the Grid Size",
+            "options": {
+                "collapse" : "collapse",
+                "small": "small",
+                "medium" : "medium",
+                "large" : "large"
+            }
+        },
         "debug": {
             "label": "Debug",
             "type": "select",
@@ -77,6 +89,7 @@
                     "title": "Config",
                     "fields": [
                         "container_alignement",
+                        "grid_size",
                         "divider",
                         "divider_interval",
                         "debug"
