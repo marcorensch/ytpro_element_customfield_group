@@ -6,6 +6,9 @@
         "render": "./templates/template.php",
         "content": "./templates/content.php"
     },
+    "defaults": {
+        "short_to": "2"
+    },
     "placeholder": {
         "props": {
             "title": "Title",
@@ -24,15 +27,26 @@
         "template": {
             "label": "Template",
             "type": "editor"
+        },
+        "useshort": {
+            "label": "Shortener",
+            "type": "checkbox",
+            "text": "use shortener for mobile"
+        },
+        "short_to": {
+            "label": "Short to Word",
+            "description": "'My Text' => 1 = My, 2 = Text",
+            "show": "useshort"
         }
-
     },
     "fieldset": {
         "default": {
             "fields": [
                 "title",
                 "fieldname",
-                "template"
+                "template",
+                "useshort",
+                "short_to"
             ]
         }
     }

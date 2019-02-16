@@ -8,7 +8,8 @@
     "container": true,
     "width": 500,
     "defaults": {
-        "fieldtype": "text"
+        "debug": "0",
+        "container_alignement": "center"
     },
     "placeholder": {
         "children": [
@@ -40,20 +41,29 @@
             "type": "checkbox",
             "text": "Remove last divider"
         },
-        "useshort": {
-            "label": "Shortener",
-            "type": "checkbox",
-            "text": "use shortener for mobile"
-        },
-        "short_to": {
-            "label": "Divider Interval",
-            "description": "Display Divider each x",
-            "show": "useshort"
-        },
         "name": "${builder:name}",
         "status": "${builder:status}",
         "id": "${builder:id}",
-        "class": "${builder:cls}"
+        "class": "${builder:cls}",
+        "container_alignement": {
+            "label": "Alignement",
+            "type": "select",
+            "description":"Container Alignement",
+            "options": {
+                "left": "left",
+                "center" : "center",
+                "right" : "right"
+            }
+        },
+        "debug": {
+            "label": "Debug",
+            "type": "select",
+            "description":"See Browser Javascript Console for Messages",
+            "options": {
+                "Yes": "1",
+                "No" : "0"
+            }
+        }
     },
     "fieldset": {
         "default": {
@@ -66,10 +76,10 @@
                 }, {
                     "title": "Config",
                     "fields": [
+                        "container_alignement",
                         "divider",
                         "divider_interval",
-                        "useshort",
-                        "short_to"
+                        "debug"
                     ]
                 },
                 "${builder:advanced}"
