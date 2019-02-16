@@ -1,0 +1,39 @@
+{
+    "name": "nx_jcf_grouped_item",
+    "title": "Customfield",
+    "width": 500,
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "placeholder": {
+        "props": {
+            "title": "Title",
+            "fieldname": "name-of-field"
+        }
+    },
+    "fields": {
+        "title": {
+            "label": "Title"
+        },
+        "fieldname": {
+            "label": "Fieldname",
+            "type": "text"
+        },
+
+        "template": {
+            "label": "Template",
+            "type": "editor"
+        }
+
+    },
+    "fieldset": {
+        "default": {
+            "fields": [
+                "title",
+                "fieldname",
+                "template"
+            ]
+        }
+    }
+}

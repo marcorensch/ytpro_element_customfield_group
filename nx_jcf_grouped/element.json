@@ -1,0 +1,79 @@
+{
+    "@import": "./element.php",
+    "name": "nx_jcf_grouped",
+    "title": "Grouped Customfields",
+    "icon": "${url:images/icon.svg}",
+    "iconSmall": "${url:images/iconSmall.svg}",
+    "element": true,
+    "container": true,
+    "width": 500,
+    "defaults": {
+        "fieldtype": "text"
+    },
+    "placeholder": {
+        "children": [
+            { "type": "nx_jcf_grouped_item", "props": {} },
+            { "type": "nx_jcf_grouped_item", "props": {} },
+            { "type": "nx_jcf_grouped_item", "props": {} }
+        ]
+    },
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "fields": {
+        "content": {
+            "label": "Items",
+            "type": "content-items",
+            "item": "nx_jcf_grouped_item"
+        },
+        "divider": {
+            "label": "Field Divider",
+            "description": "String to divide fields"
+        },
+        "divider_interval": {
+            "label": "Divider Interval",
+            "description": "Display Divider each x"
+        },
+        "rem_last": {
+            "label": "Remove last divider",
+            "type": "checkbox",
+            "text": "Remove last divider"
+        },
+        "useshort": {
+            "label": "Shortener",
+            "type": "checkbox",
+            "text": "use shortener for mobile"
+        },
+        "short_to": {
+            "label": "Divider Interval",
+            "description": "Display Divider each x",
+            "show": "useshort"
+        },
+        "name": "${builder:name}",
+        "status": "${builder:status}",
+        "id": "${builder:id}",
+        "class": "${builder:cls}"
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [{
+                    "title": "Items",
+                    "fields": [
+                        "content"
+                    ]
+                }, {
+                    "title": "Config",
+                    "fields": [
+                        "divider",
+                        "divider_interval",
+                        "useshort",
+                        "short_to"
+                    ]
+                },
+                "${builder:advanced}"
+            ]
+        }
+    }
+}
